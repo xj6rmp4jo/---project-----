@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="web.css">
+        <title>我的購物車-零食網</title>
+    </head>
+
+    <body>
+        <div id="shoppingCartContainer"></div>
+        <div id="memberContainer"></div>
+
+        <div class="container">
+            <div class="shopcart_logo">
+                <img src="./img/logo-ad/logo1.jpg" class="logo" height="60px">
+                <img src="./img/memberInfo/shoppingCart.jpg" class="Cart">  
+            </div>
+
+            <div class="Product1">
+                <img src="./img/Product/Beefjerky.png" class="item"> 
+                <div class="text-container">
+                    <p>快車牛肉乾　</p>
+                    <p id="product6">0</p>
+                </div>
+            </div>
+
+            <div class="Product2">
+                <img src="./img/Product/Chocolate.png" class="item"> 
+                <div class="text-container">
+                    <p>酒芯巧克力(一盒 8 顆入)</p>
+                    <p id="product0">0</p>
+                </div>
+            </div>
+
+            <div class="Product3">
+                <img src="./img/Product/Cookies.png" class="item"> 
+                <div class="text-container">
+                    <p>巧克力餅乾　</p>
+                    <p id="product5">0</p>
+                </div>
+            </div>
+
+            <div class="Product4">
+                <img src="./img/Product/Cookies2.png" class="item"> 
+                <div class="text-container">
+                    <p>金黃麥芽糖霜餅　　　　</p>
+                    <p id="product1">0</p>
+                </div>
+            </div>
+
+            <div class="Product5">
+                <img src="./img/Product/Mango.png" class="item"> 
+                <div class="text-container">
+                    <p>芒果乾　　　</p>
+                    <p id="product7">0</p>
+                </div>
+            </div>
+
+            <div class="Product6">
+                <img src="./img/Product/Cookies3.png" class="item"> 
+                <div class="text-container">
+                    <p>巧克力夾心　　　　　　</p>
+                    <p id="product4">0</p>
+                </div>
+            </div>
+
+            <div class="Product7">
+                <img src="./img/Product/Peanut.png" class="item"> 
+                <div class="text-container">
+                    <p>原味烘培堅果</p>
+                    <p id="product9">0</p>
+                </div>
+            </div>
+
+            <div class="Product8">
+                <img src="./img/Product/nuts.png" class="item"> 
+                <div class="text-container">
+                    <p>核桃酥　　　　　　　　</p>
+                    <p id="product2">0</p>
+                </div>
+            </div>
+
+            <div class="Product9">
+                <img src="./img/Product/Squid Jerky.png" class="item"> 
+                <div class="text-container">
+                    <p>魷҇̾̾̌̉̽魚҇̍̈絲　　　</p>
+                    <p id="product8">0</p>
+                </div>
+            </div>
+
+            <div class="Product10">
+                <img src="./img/Product/maji.png" class="item"> 
+                <div class="text-container">
+                    <p>麻粩　　　　　　　　　</p>
+                    <p id="product3">0</p>
+                </div>
+            </div>
+            
+            <div class="total_price">
+                <div class="text-container">
+                    <h3 id="total">商品總價格 : NT　0</h3>
+                </div>
+            </div>
+
+            <div class="member_info">
+                <h3 class="info">會員資料確認</h3>
+                <p class="text" id="account">帳號 : </p>
+            </div>
+
+            <div class="check">
+                <div class="button-container">
+                    <button class="checkout-button">確認結帳</button>
+                </div>
+            </div>
+        </div>
+     </body>
+     
+     <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            var shoppingCart = JSON.parse(localStorage.getItem('shoppingCart'));
+            var sum = 0;
+
+            for (var i = 0; i <= 9; i++) {
+                document.getElementById("product" + i).textContent = shoppingCart[i].count;
+                sum += shoppingCart[i].count * shoppingCart[i].price;
+            } // for(i)
+
+            document.getElementById("account").textContent = "帳號 : " + JSON.parse(localStorage.getItem('member_now'));
+            document.getElementById("total").textContent = "商品總價格 : NT " + sum;
+        });
+    </script>
+</html>
