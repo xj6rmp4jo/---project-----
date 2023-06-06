@@ -1,5 +1,5 @@
 let marqueeIndex = 0;
-setInterval(function(){marquee(1);}, 1000);
+setInterval(function(){marquee(1);}, 2500);
 setInterval(clock, 1000);
 
 
