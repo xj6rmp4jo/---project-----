@@ -26,7 +26,7 @@
             <div class="Product2">
                 <img src="./img/Product/Chocolate.png" class="item"> 
                 <div class="text-container">
-                    <p>酒芯巧克力(一盒 8 顆入)</p>
+                    <p>酒芯巧克力(一盒8顆入)　</p>
                     <p id="product0">0</p>
                 </div>
             </div>
@@ -82,7 +82,7 @@
             <div class="Product9">
                 <img src="./img/Product/Squid Jerky.png" class="item"> 
                 <div class="text-container">
-                    <p>魷҇̾̾̌̉̽魚҇̍̈絲　　　</p>
+                    <p>魷魚҈̨̕҈҈̵̷̴̴̴̶̡̡̡̡̛̛̍̌͆̌͋͗̇̕͜͢͜͡͠͡͝҉̸̸̷̷̵̷̵̡̢̨̧̢̨̢̛̑́͑̈́̑҇̐̈́҇̏̕͢͞͞͞͝҈̀͜͡҈̸̵̷̸̸̨̨̧̡̧͔̖̜͛̅҇̓҇̕͢͝͝͡҈̡̖͡҉̵̸̢̢̛̗͚̯҇͜͡҈̷̸̶̨̧̧̢̛͈̦͖̦͝͞͞҈̸̨̟̖҇͜͠҉̴̢̤̱͢͞͝҈̶̸̡̧̱͓̕͢͠͡ͅ҉̴̧̧̛̱͉͝҉̶̶̡̪̳҇҇̍̈̕͢͜͝絲҈̜̙̗̟̟̪̙͇͕̩̊̀̄̌̄̽̋̉̎̔҈̴̷̶̸̦̠̪̲̪̘̭̭͙̮̖͇̱̲̭̳̜̭͔͚͇̦̯̳̝̗̟͍̩͈̦͎̘̟̯̜͍̟͔͎̋̈́̎̏͋͗̈̓͛͆̏͑̈̓̀̿̍̿͆̉̊̌̇̀͌͐̾͌̊͑̄͌̇͊̃͛͛̄͋̃̌̚҉̷̵͕̮̤̱͖̮̬͉͙̱̮̲͖̝͖̌̑͛̍̓̊̍̾̐̐̍̍̚　　　</p>
                     <p id="product8">0</p>
                 </div>
             </div>
@@ -93,30 +93,44 @@
                     <p>麻粩　　　　　　　　　</p>
                     <p id="product3">0</p>
                 </div>
-            </div>
+            </div> <!-- class="Product10" -->
             
             <div class="total_price">
                 <div class="text-container">
                     <h3 id="total">商品總價格 : NT　0</h3>
                 </div>
-            </div>
+            </div> <!-- class="total_price" -->
 
             <div class="member_info">
                 <h3 class="info">會員資料確認</h3>
-                <p class="text" id="account">帳號 : </p>
-            </div>
+                <p class="text" id="username">　　帳號 : </p>
+                <p class="text" id="email">電子郵件 : </p>
+                <p class="text" id="gender">　　性別 : </p>
+                <p class="text" id="tellphone">　　電話 : </p>
+                <p class="text" id="address">　　地址 : </p>
+            </div> <!-- class="member_info" -->
 
             <div class="check">
                 <div class="button-container">
-                    <button class="checkout-button">確認結帳</button>
-                </div>
-            </div>
+                    <button id="checkButton" class="checkout-button">確認結帳</button>
+                </div> <!-- class="button-container" -->
+
+                <script>
+                    document.getElementById("checkButton").addEventListener("click", finishPurshes);
+
+                    function finishPurshes() {
+                        alert("Thanks for your purchase.");
+                        window.location.href = "./memberInfo.html";
+                    } // finishPurshes()
+                </script>
+            </div> <!-- class="check" -->
         </div>
      </body>
      
      <script>
         window.addEventListener('DOMContentLoaded', (event) => {
             var shoppingCart = JSON.parse(localStorage.getItem('shoppingCart'));
+            var member_now   = JSON.parse(localStorage.getItem('member_now'));
             var sum = 0;
 
             for (var i = 0; i <= 9; i++) {
@@ -124,8 +138,12 @@
                 sum += shoppingCart[i].count * shoppingCart[i].price;
             } // for(i)
 
-            document.getElementById("account").textContent = "帳號 : " + JSON.parse(localStorage.getItem('member_now'));
+            document.getElementById("username").textContent  = "　　帳號 : " + member_now.username;
+            document.getElementById("email").textContent     = "電子郵件 : " + member_now.email;
+            document.getElementById("gender").textContent    = "　　性別 : " + member_now.gender;
+            document.getElementById("tellphone").textContent = "　　電話 : " + member_now.tellphone;
+            document.getElementById("address").textContent   = "　　地址 : " + member_now.address;
             document.getElementById("total").textContent = "商品總價格 : NT " + sum;
-        });
+        }); // load
     </script>
 </html>

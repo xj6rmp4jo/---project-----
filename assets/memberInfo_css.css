@@ -1,0 +1,189 @@
+* {
+    margin: 0px;
+} /* * */
+
+.container {
+    display: grid;
+    min-height: 720px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows:    1fr 2fr 2fr 2fr 2fr 2fr;
+    grid-auto-flow: row;
+
+    grid-template-areas: 
+        "memberInfo  memberInfo  memberInfo  memberInfo memberInfo"
+        "side0       box         box         box        box"
+        "side1       box         box         box        box"
+        "none        box         box         box        box"
+        "none        box         box         box        box"
+        "socialMedia socialMedia socialMedia QRCode     QRCode";
+} /* .container */
+
+memberInfo {
+    grid-area: memberInfo;
+    background-color: #ccd5ae;
+} /* memberInfo */
+
+#clock {
+    padding-top: 15px;
+    font-size: 25px;
+    display: inline-block;
+    margin-left: 15px;
+} /* #clock */
+
+#welcome {
+    padding-top: 15px;
+    font-size: 25px;
+    display: inline-block;
+    margin-left: 5%;
+} /* #welcome */
+
+.goTo_shoppingCart {
+    cursor: pointer;
+    position: absolute;
+    padding-top: 15px;
+    font-size: 25px;
+    display: inline-block;
+    right: 100px;
+} /* #goTo_shoppingCart */
+
+.goTo_shoppingCart a:hover {
+    background-color: #76736F;
+    color:white;
+ }/* #goTo_shoppingCart a:hover */
+
+
+#logIn {
+    cursor: pointer;
+    position: absolute;
+    padding-top: 15px;
+    font-size: 25px;
+    display: inline-block;
+    right: 275px;
+} /* #logIn */
+
+#logIn p:hover {
+    background-color: #76736F;
+    color:white;
+} /* logIn a:hover */
+
+#register {
+    cursor: pointer;
+    position: absolute;
+    padding-top: 15px;
+    font-size: 25px;
+    display: inline-block;
+    right: 500px;
+} /* #register */
+
+#register p:hover {
+    background-color: #76736F;
+    color:white;
+} /* #register p:hover */
+
+#member {
+    cursor: pointer;
+    position: absolute;
+    padding-top: 15px;
+    font-size: 25px;
+    display: inline-block;
+    right: 650px;
+} /* #member */
+
+#member a:hover {
+    background-color: #76736F;
+    color:white;
+} /* #member p:hover */
+
+#team {
+    cursor: pointer;
+    position: absolute;
+    padding-top: 15px;
+    font-size: 25px;
+    display: inline-block;
+    right: 875px;
+} /* #team */
+
+#team a:hover {
+    background-color: #76736F;
+    color:white;
+} /* #team p:hover */
+
+
+side0 {
+    grid-area: side0;
+    background-color: #fefae0;
+} /* side0 */
+
+#MyInfo {
+    font-size: 40px;
+    background-color: #ccd5ae;
+    margin-top: 68px;
+    margin-left: 143px;
+    display: inline-block;
+    cursor: pointer;
+} /* MyInfo */
+
+side1 {
+    grid-area: side1;
+    background-color: #fefae0;
+} /* side1 */
+
+#history {
+    font-size: 40px;
+    background-color: #ccd5ae;
+    margin-top: 8px;
+    margin-left: 143px;
+    display: inline-block;
+    cursor: pointer;
+} /* history */
+
+box {
+    grid-area: box;
+    background-color: #fefae0;
+} /* box */
+
+#log {
+    font-size: 35px;
+} /* log */
+
+none {
+    grid-area: none;
+    background-color: #fefae0;
+} /* none */
+
+socialMedia {
+    grid-area: socialMedia;
+    background-color: #ccd5ae;
+} /* socialMedia */
+
+QRCode {
+    grid-area: QRCode;
+    background-color: #ccd5ae;
+} /* QRCode */
+
+.socialMedia {
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 25px;
+    margin-left: 70px;
+    margin-right: 70px;
+} /* .socialMedia */
+
+.QR {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 15px;
+    margin-left: 70px;
+} /* .QR */
+
+.QR-link {
+    display: flex;
+    gap: 30px;
+} /* .QR-link */
+
+.QR-image {
+    margin-right: 10px;
+} /* .QR-image */

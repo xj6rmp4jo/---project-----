@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>會員資料確認</title>
+        <link rel="stylesheet" href="./assets/memberInfo_css.css">
+        <script src="./assets/script.js"></script>
+
+        <script>
+            var txt_myInfo = "", txt_history = "";
+        </script>
+    </head>
+
+    <body>
+        <div class="container">
+            <memberInfo>
+                <div id="clock">0000/00/00 00:00:00</div>
+                <div id="welcome">歡迎 使用者</div>
+
+                <div class="goTo_shoppingCart">
+                    <a id="shoppingcart_txt" href="./shoppingCart.html">購物車</a>
+                </div> <!-- id="goTo_shoppingCart" -->
+
+                <div id="logIn">
+                    <p>登入 / 登出</p> 
+                </div> <!-- id="logIn" -->
+
+                <div id="register">
+                    <p>註冊</p> 
+                </div> <!-- id="register" -->
+
+                <div id="member">
+                    <a href="./memberInfo.html">會員專區</a> 
+                </div> <!-- id="member" -->
+
+                <div id="team">
+                    <a href="./intro.html">關於我們</a> 
+                </div> <!-- id="team" -->
+
+                <script>
+                    document.getElementById("register").addEventListener("click", alertLogIn);
+
+                    document.getElementById('logIn').addEventListener('click', function(event) {
+                        alert("Logout successful.");
+                        member_now = null;
+                        localStorage.setItem('member_now', JSON.stringify(member_now));
+                        window.location.href = "./index.html";
+                    });
+
+                    function alertLogIn() {
+                        alert("You are already logged in.");
+                    } // alertLogIn()
+                </script>
+            </memberInfo>
+
+            <side0>
+                <p id = MyInfo>我的資料</p>
+
+                <script>
+                    document.getElementById("MyInfo").addEventListener('click', function(event) {
+                        document.getElementById("log").innerHTML = txt_myInfo;
+                    }); // click MyInfo
+                </script>
+            </side0>
+
+            <side1>
+                <p id = history>消費紀錄</p>
+
+                <script>
+                    document.getElementById("history").addEventListener('click', function(event) {
+                        document.getElementById("log").innerHTML = txt_history;
+                    }); // click history
+                </script>
+            </side1>
+
+            <none></none>
+
+            <box>
+                <p id = "log"></p>
+            </box>
+
+            <socialMedia>
+                <div class="socialMedia">
+                    <div class="social-link">
+                        <a href="https://www.facebook.com/profile.php?id=100093156142154" target="_blank">
+                            <img src="./img/social/fb.png" alt="Facebook">
+                        </a>
+                    </div>
+
+                    <div class="social-link">
+                        <a href="https://www.instagram.com/happycaitlin030/?fbclid=IwAR3A2vBWXX4ImItZvTq-9kcBI-mD5WfHcnjks5QE-nH7aaMIvicKVip1VAM" target="_blank">
+                            <img src="./img/social/ig.png" alt="Instagram">
+                        </a>
+                    </div>
+
+                    <div class="social-link">
+                        <a href="https://www.twitter.com" target="_blank">
+                            <img src="./img/social/twitter.png" alt="Twitter"> 
+                        </a>
+                    </div>
+
+                    <div class="social-link">
+                        <a href="https://lin.ee/IB6htO8" target="_blank">
+                            <img src="./img/social/line.png" alt="LINE">
+                        </a>
+                    </div>
+                </div> <!-- class="socialMedia" -->
+            </socialMedia>
+
+            <QRCode>
+                <div class="QR">
+                    <div class="QR-link">
+                        <img src="./img/QRcode/QRcode.png">
+                        <img src="./img/QRcode/QRcode1.png">
+                        <img src="./img/QRcode/QRcode2.png">
+                        <img src="./img/QRcode/QRcode3.png">
+                    </div> <!-- class="QR-link" -->
+                </div>
+            </QRCode>
+        </div> <!-- class="container" -->
+
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                var member_now   = JSON.parse(localStorage.getItem('member_now'));
+                var shoppingCart = JSON.parse(localStorage.getItem('shoppingCart'));
+
+                document.getElementById("welcome").textContent = "歡迎 " + member_now.username;
+
+                txt_myInfo = "　　　帳號 : " + member_now.username  + "<br>" +
+                             "　電子郵件 : " + member_now.email     + "<br>" +
+                             "　　　性別 : " + member_now.gender    + "<br>" +
+                             "　　　電話 : " + member_now.tellphone + "<br>" +
+                             "　　　地址 : " + member_now.address;
+
+                const now     = new Date(); // 取得當前時間
+                const year    = now.getFullYear();
+                const month   = padZero(now.getMonth() + 1); // 月份從 0 開始，所以要加 1
+                const day     = padZero(now.getDate());
+                const hours   = padZero(now.getHours());
+                const minutes = padZero(now.getMinutes());
+                const seconds = padZero(now.getSeconds());
+                const formattedTime = `${year}/${month}/${day} ${hours}:${minutes}:${seconds}`; // 格式為 YYYY/MM/DD HH:MM:SS
+
+                for (var i = 0; i < shoppingCart.length; i++)
+                    if (shoppingCart[i].count > 0)
+                        txt_history += shoppingCart[i].name + "　NT" + shoppingCart[i].price + "　X　" + shoppingCart[i].count + "　" + formattedTime+ "<br>";
+
+                document.getElementById("log").innerHTML = txt_history;
+            }); // load
+
+            function padZero(number) { // 輔助函數：如果數字小於 10，在前面補上零
+                return number < 10 ? '0' + number : number;
+            } // padZero()
+        </script>
+    </body>
+</html>

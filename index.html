@@ -14,23 +14,24 @@
             } // product()
         
             var shoppingCart = new Array(10);
-            shoppingCart[0] = new product("酒芯巧克力(一盒 8 顆入)", 400, 0);
-            shoppingCart[1] = new product("金黃麥芽糖霜餅", 125, 0);
-            shoppingCart[2] = new product("核桃酥", 159, 0);
-            shoppingCart[3] = new product("麻粩", 199, 0);
-            shoppingCart[4] = new product("巧克力夾心", 250, 0);
-            shoppingCart[5] = new product("巧克力餅乾", 149, 0);
-            shoppingCart[6] = new product("快車牛肉乾", 249, 0);
-            shoppingCart[7] = new product("芒果乾", 99, 0);
-            shoppingCart[8] = new product("真͐̇͆͒̍͡ ‧̈́̔̐̉͠ 魷҇̾̾̌̉̽魚҇̍̈絲҇̾́̐", 200, 0);
-            shoppingCart[9] = new product("原味烘培堅果", 349, 0);
+            shoppingCart[0] = new product("　酒芯巧克力(一盒8顆入)", 400, 0);
+            shoppingCart[1] = new product("　　　　 金黃麥芽糖霜餅", 125, 0);
+            shoppingCart[2] = new product("　　　　　　　　 核桃酥", 159, 0);
+            shoppingCart[3] = new product("　　　　　　　　　 麻粩", 199, 0);
+            shoppingCart[4] = new product("　　　　　　 巧克力夾心", 250, 0);
+            shoppingCart[5] = new product("　　　　　　 巧克力餅乾", 149, 0);
+            shoppingCart[6] = new product("　　　　　　 快車牛肉乾", 249, 0);
+            shoppingCart[7] = new product("　　　　　　　　 芒果乾", 109, 0);
+            shoppingCart[8] = new product("　　　　　　 邪҉̡̥̟͚̰͑͒̕神҉͚̥̰͕̩͍͉͎͇̰̀͌̌̐͊̍̈́̓̏͛̊̈͂͗͋̀̊̄͒͛ͅͅ魷҇̾̾̌̉̽魚҇̍̈絲҇̾́̐", 200, 0);
+            shoppingCart[9] = new product("　　　　　 原味烘培堅果", 349, 0);
 
-            function user(a, p) {
-                this.account = a, this.password = p;
+            function user(u, p, e, g, t, a) {
+                this.username = u, this.password  = p, this.email   = e;
+                this.gender   = g, this.tellphone = t, this.address = a;
             } // user()
 
             var member = [];
-            var member_now = "";
+            var member_now = null;
         </script>
     </head>
 
@@ -40,82 +41,200 @@
                 <div id="clock">0000/00/00 00:00:00</div>
                 <div id="welcome">歡迎 使用者</div>
 
-                <div id="goTo_shoppingCart">
-                    <a href="./shoppingCart.html"><img src="./img/memberInfo/shoppingCart.jpg"></a>
+                <div class="goTo_shoppingCart">
+                    <a id="shoppingcart_txt" href="./shoppingCart.html">購物車</a>
                 </div> <!-- id="goTo_shoppingCart" -->
 
                 <div id="logIn">
-                    <p>註冊 / 登入</p> 
+                    <p>登入 / 登出</p> 
                 </div> <!-- id="logIn" -->
 
+                <div id="register">
+                    <p>註冊</p> 
+                </div> <!-- id="register" -->
+
+                <div id="member">
+                    <a href="./memberInfo.html">會員專區</a> 
+                </div> <!-- id="member" -->
+
+                <div id="team">
+                    <a href="./intro.html">關於我們</a> 
+                </div> <!-- id="team" -->
+               
                 <div class="popup_memberInfo">
                     <span id="close_memberInfo">&times;</span>
                     <form id="myForm" method="post">
-                        請輸入帳號密碼<br/>
-                        帳號：<input id="username" type="text" size="30"><br/>
-                        密碼：<input id="password" type="password" size="30"><br/>
-                        <input id="register" type="submit" value="註冊">
-                        <input id="log_in" type="submit" value="登入">
+                        <h2>　　　請輸入各項資料</h2>
+                        　　帳號：<input id="username" type="text" size="30"><br/>
+                        　　密碼：<input id="password" type="password" size="30"><br/>
+                        電子郵件：<input id="email" type="text" size="30"><br/>
+                        　　性別：<select name="gender" id="gender">
+                            <option value="男">男</option><option value="女">女</option><option value="不願透露">不願透露</option></select><br/>
+                        　　電話：<input id="tellphone" type="text" size="30"><br/>
+                        　　地址：<input id="address" type="text" size="30"><br/>
+                        <input id="confirm" type="submit" value="確認">
                     </form>
                 </div> <!-- class="popup_memberInfo" -->
 
+                <div class="popup_logIn">
+                    <span id="close_logIn">&times;</span>
+                    <form id="myForm1" method="post">
+                        <h2>　　　請輸入帳號密碼</h2>
+                        帳號：<input id="username1" type="text" size="30"><br/>
+                        密碼：<input id="password1" type="password" size="30"><br/>
+                        <input id="confirm1" type="submit" value="確認">
+                    </form>
+                </div> <!-- class="popup_logIn" -->
+
                 <script>
-                    document.getElementById("goTo_shoppingCart").addEventListener("click", updateShoppingCart);
-                    document.getElementById("logIn").addEventListener("click", showInfo_memberInfo);
+                    document.getElementById("shoppingcart_txt").addEventListener("click", updateShoppingCart);
+                    document.getElementById("register").addEventListener("click", showInfo_memberInfo);
                     document.getElementById("close_memberInfo").addEventListener("click", closeInfo_memberInfo);
+                    document.getElementById("close_logIn").addEventListener("click", closeInfo_logInInfo);
+                    document.getElementById("member").addEventListener("click", updateMemberInfo);
 
-                    document.getElementById('register').addEventListener('click', function(event) {
-                        event.preventDefault(); // 防止表單自動提交刷新頁面
-                  
-                        // 獲取使用者輸入的值
-                        var u = new user(document.getElementById('username').value, document.getElementById('password').value);
-                        var same = false;
+                    document.getElementById('confirm').addEventListener('click', function(event) {
+                        event.preventDefault(); // prevent automatic form submission and page refresh
+                
+                        // get user input
+                        var u = new user(document.getElementById('username').value, document.getElementById('password').value,  document.getElementById('email').value, 
+                                         document.getElementById('gender').value,   document.getElementById('tellphone').value, document.getElementById('address').value);
 
-                        for (var i=0; i<member.length; i++)
-                            if (u.account == member[i].account)
-                                same = true;
-
-                        if (same)
-                            alert("You fucking idiot");
+                        if (u.username == "" || u.password == "" || u.email == "" || u.gender == "" || u.tellphone == "" || u.address == "")
+                            alert("You need to fill in the information completely.");
                         else {
-                            member.push(u);
-                            document.querySelector('.popup_memberInfo').style.display = 'none';
-                            member_now = u.account;
-                            document.getElementById("welcome").textContent = "歡迎 " + u.account;
+                            var uppercase = 0, lowercase = 0, digit = 0;
+
+                            for (var i = 0; i < u.password.length; i++) {
+                                if     ('0' <= u.password[i] && u.password[i] <= '9') digit++;
+                                else if('a' <= u.password[i] && u.password[i] <= 'z') lowercase++;
+                                else if('A' <= u.password[i] && u.password[i] <= 'Z') uppercase++;
+                            } // for(i)
+
+                            if (uppercase + lowercase + digit < 6 || uppercase == 0 || lowercase == 0 || digit == 0)
+                                alert("The password complexity is insufficient. The password should be a combination of digits, lowercase letters, and uppercase letters, with a length greater than 6 characters.");
+                            else {
+                                if (member == null) {
+                                    member = [];
+                                    member.push(u);
+                                    member_now = u;
+                                    document.querySelector('.popup_memberInfo').style.display = 'none';
+                                    document.getElementById("welcome").textContent = "歡迎 " + member_now.username;
+                                } // if()
+                                else {
+                                    var same = false;
+
+                                    for (var i = 0; i < member.length; i++)
+                                        if (u.account == member[i].account)
+                                            same = true;
+
+                                    if (same)
+                                        alert("The account name has already been taken. Please register again.");
+                                    else {
+                                        member.push(u);
+                                        member_now = u;
+                                        document.querySelector('.popup_memberInfo').style.display = 'none';
+                                        document.getElementById("welcome").textContent = "歡迎 " + member_now.username;
+                                    } // else
+                                } // else
+                            } // else
+                        } // else
+                    }); // click confirm
+
+                    document.getElementById('logIn').addEventListener('click', function(event) {
+                        if (member_now == null)
+                            document.querySelector('.popup_logIn').style.display = 'block';
+                        else {
+                            member_now = null;
+                            localStorage.setItem('member_now', JSON.stringify(member_now));
+                            alert("Logout successful.");
+                            document.getElementById("welcome").textContent = "歡迎 使用者";
                         } // else
                     });
 
-                    document.getElementById('log_in').addEventListener('click', function(event) {
-                        event.preventDefault(); // 防止表單自動提交刷新頁面
-                  
-                        // 獲取使用者輸入的值
-                        var u = new user(document.getElementById('username').value, document.getElementById('password').value);
+                    document.getElementById('confirm1').addEventListener('click', function(event) {
+                        event.preventDefault(); // prevent automatic form submission and page refresh
+                
+                        // get user input
+                        var u = new user(document.getElementById('username1').value, document.getElementById('password1').value, 0, 0, 0, 0);
                         var same = false;
 
-                        for (var i = 0; i < member.length; i++)
-                            if (u.account == member[i].account && u.password == member[i].password)
+                        for (var i = 0; i < member.length; i++) {
+                            if (u.username == member[i].username && u.password == member[i].password) {
                                 same = true;
+                                member_now = member[i];
+                            } // if()
+                        } // for(i)
 
                         if (same) {
                             alert("welcome");
-                            document.querySelector('.popup_memberInfo').style.display = 'none';
-                            member_now = u.account;
+                            document.querySelector('.popup_logIn').style.display = 'none';
+                            document.getElementById("welcome").textContent = "歡迎 " + member_now.username;
                         } // if()
-                        else alert("input error");
-                    });
+                        else 
+                            alert("login failed, please try again");
+                    }); // click confirm1
+
+                    function closeInfo_logInInfo() {
+                        document.querySelector('.popup_logIn').style.display = 'none';
+                    }// closeInfo_memberInfo()
 
                     function updateShoppingCart() {
-                        localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
-                        localStorage.setItem('member_now', JSON.stringify(member_now));
+                        if (member_now == null) {
+                            alert("You are not logged in yet.");
+                            event.preventDefault(); // Prevent user from accessing memberInfo
+                        } // if()
+                        else {
+                            var buy = false;
+
+                            for (var i = 0; i < shoppingCart.length; i++)
+                                if (shoppingCart[i].count > 0)
+                                    buy = true;
+
+                            if (buy) {
+                                localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+                                localStorage.setItem('member_now',   JSON.stringify(member_now));
+                                localStorage.setItem('member',       JSON.stringify(member));
+                            } // if (buy)
+                            else {
+                                alert("You have not made any purchases yet.");
+                                event.preventDefault(); // Prevent user from accessing memberInfo
+                            } // else
+                        } // else
+                    } // updateShoppingCart()
+
+                    function updateMemberInfo() {
+                        if (member_now == null) {
+                            alert("You are not logged in yet.");
+                            event.preventDefault(); // Prevent user from accessing memberInfo
+                        } // if()
+                        else {
+                            localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+                            localStorage.setItem('member_now', JSON.stringify(member_now));
+                            localStorage.setItem('member',     JSON.stringify(member));
+                        } // else
                     } // updateShoppingCart()
 
                     function showInfo_memberInfo() {
-                        document.querySelector('.popup_memberInfo').style.display = 'block';
+                        if (member_now == null)
+                            document.querySelector('.popup_memberInfo').style.display = 'block';
+                        else
+                            alert("You are already logged in.");
                     } // showInfo_memberInfo()
 
                     function closeInfo_memberInfo() {
                         document.querySelector('.popup_memberInfo').style.display = 'none';
                     }// closeInfo_memberInfo()
+
+                    window.addEventListener('DOMContentLoaded', (event) => {
+                        member_now = JSON.parse(localStorage.getItem('member_now'));
+
+                        if (member_now != null) document.getElementById("welcome").textContent = "歡迎 " + member_now.username;
+                        else                    document.getElementById("welcome").textContent = "歡迎 使用者";
+
+                        for(var i = 0; i < shoppingCart.length; i++) // reset shoppingCart
+                            shoppingCart[i].count = 0;
+                    }); // load
                 </script>
             </memberInformation>
             
@@ -627,28 +746,28 @@
 
                 <div class="popup_good_3">
                     <span id="close_good_3">&times;</span>
-                    <h3>真͐̇͆͒̍͡ ‧̈́̔̐̉͠ 魷҇̾̾̌̉̽魚҇̍̈絲҇̾́̐</h3> 
+                    <h3>真҉̖͖̯̩͖͔̙̘̠̫̪̙̋̈́̇̋̽̐͑͑̑͂̾̓̌̚ͅ魷҇̾̾̌̉̽魚҇̍̈絲҇̾́̐</h3> 
                     <br>
-                    <p>崇̴͕̥̞̲̤͕̥̙̳̘̦͇̞͚̟̑͌̄̿̅̔͒̏̑̃̉̃͌̌́͌拜̵̱̰̗̫͔̖͓̭̟͙̈́̒͗̋̔̽̽͆͂̃̀̎̎̋̔͛ͅ宇̵̟̭̩͈̖̦̱̦͙̜̘̖̮̦̎͑̂̽͗̀͗͂̔̈́宙҉̬̰͎͎̩̫͉̟̳͎͔̗̅͂̒̂̔́͂͌̂唯̷̘̗̫̳̖̣̣̞̘͓̠̞̩̇̇͐̈́̋́̆̓̾̊͑̄́̀̋̿ͅͅ一҉͈͙̰̙̱͔̟͕̮̳̜̙̘͙̠͊̓́͗̎̒̏̀̒̅̏͆̈́̿̾̚真̷͓͈̖̞̪̮̥̩̙̖̖̋̊̀͆͑̀̍̄̒神҈͎̲̟͙̩̳̬͙̘̦̖̲̤͎̜̱̄̓̔͆͑́̒͆͗̐̎̈̆̚克҈͙̝̖̗͖̰̥̪͉͈͆̋̄̇̆͗͗͊͋̂̑́̃͗蘇̷̤̙̘̲̦̝̭͓̙̣̩̪̭̮̳͔̃͊͌͋̌̎̎͊̆̿魯̵͓̗͙͕͈̦͇̜̀̽͛̅̽̊̄̃͆̿̏͐̈́̀̾̀ͅ吧̸̣͕͓̭̲͙̬̦̱̭̫͓̗̱͐̄̈́̈̀̾̈͌̇͗́͛</p>
+                    <p>宇҈͔͎̙̯̞̭͈̟͕͇̤̤͇̿́̉̑̿͛̿̆̿͊̿宙҉̬̰͎͎̩̫͉̟̳͎͔̗̅͂̒̂̔́͂͌̂唯҈͇̖͈̫͖̥̩͈̮̪̭̯̝̳͐͂̿̈̉̅̐̒͊ͅ一҉͈͙̰̙̱͔̟͕̮̳̜̙̘͙̠͊̓́͗̎̒̏̀̒̅̏͆̈́̿̾̚真҉̧͇̝̆͛̀̒̂̕神҈͎̲̟͙̩̳̬͙̘̦̖̲̤͎̜̱̄̓̔͆͑́̒͆͗̐̎̈̆̚克蘇҉̰̝̩̘̮̝̞̩̾̀̅̂̔̿̌́͊̚魯҈̢̛̯̞͖̋̉̀̔̎͌ͅͅ</p>
                     <br>
 
-                    <p style="display: inline;">單̴̥̗͓͉̲̫̩͍̣̰̞̯̆̈́͊̽̐̐͛͑價҉̩̙͉̥͕̝̭̫̲͔̯̬̅͂͐͐̽̒̈ͅ　</p>
+                    <p style="display: inline;">單҈̢̤̲̯̘҇̐̌̔̈價҉̩̙͉̥͕̝̭̫̲͔̯̬̅͂͐͐̽̒̈ͅ　</p>
                     <p style="display: inline;">N҉̡̳͓̠̣̬͚̽̔͂̕ͅT̷̡̘͕̖͇́́̈́̍͝2҈̨͍͎̲̘̯͎҇̆͗̿̿͌́̒0̸̢̘̙̥̫̜̫̤͛͐̐̂͌͝ͅ0̷̧̥̤̪̪̩͊̔́̀̚͡</p>
                     <br><br>
 
-                    <p style="display: inline;">　數̸̪͎̰͈̳̰̟̣̜͑̃̅̾̒͒́ͅ量҉̮̮̤̗̤̱̭͉̤̰̬͇͉̮̌̋̔̊̏͋̀</p>
+                    <p style="display: inline;">　數҉̗̯̠̖͔̬̭̠͍̦͖̗͙̭̈́̆̓͛̍̍͌̚ͅͅ量҉̮̮̤̗̤̱̭͉̤̰̬͇͉̮̌̋̔̊̏͋̀</p>
                     <br>
                     <button id="minus_good_3" style="display: inline;">&lt;</button>
                     <p id="count_good_3" style="display: inline;">0</p>
                     <button id="add_good_3" style="display: inline;">&gt;</button>
                     <br><br>
 
-                    <p style="display: inline;">總̷̪̰͔̰͉̜͔̯͎̝̓̿̅̃́͗̈́̀̿̐͋̀̀價҉̝͍̙̖̥̦̖̥͖̣̱̱̯̭̦͕̍̌̂̒́̀̚　</p>
+                    <p style="display: inline;">總҉̣͈̖̪̜͕̲͍̭̪̒̎͆̑̎̋̇̔́̇͐̈́͋̒價҉̝͍̙̖̥̦̖̥͖̣̱̱̯̭̦͕̍̌̂̒́̀̚　</p>
                     <p id="sum_good_3" style="display: inline;">0</p>
                     <br><br>
 
                     <div style="text-align: center;">
-                        <button id="addToShoppingCart_good_3" style="text-align: center;">加̶͖͚̳̜̩̥̖̜̮̲̘̀̌͋̏́̈́͑̀ͅ入҈̜̝͚̦͕̫̫̙̯̳̮̘̪͓̿̈́̑̿̅͂͂̄̉͛̿͊̎̚購̶̮͔̰͎̣̞͔͖͉͛̿̌͆̿̎͂͗̅̉͊̾̚̚物҈͖̱̭͕͔̥̜͚̭̗͒̈́̌̑̀̑̾̽͛̌̌́̓̾͂̚車҈̦̤̰͍̟̦̲͓̙̌͋̓̈́͊̑̿̇͋̇̐͆</button>
+                        <button id="addToShoppingCart_good_3" style="text-align: center;">加҈̥̗̖͙̱̭̜̤̮̮͓̞̫͇̖͇̳̳̣̱̰̀͐͛̽̆̓̇̄̐̾͊̆͌́͗̚入҈̜̝͚̦͕̫̫̙̯̳̮̘̪͓̿̈́̑̿̅͂͂̄̉͛̿͊̎̚購҉͔̜̰̤̬̘͍̝̟̳̜̏̄͋̏͆͊̅͆̽͛̇物҈͖̱̭͕͔̥̜͚̭̗͒̈́̌̑̀̑̾̽͛̌̌́̓̾͂̚車҈̦̤̰͍̟̦̲͓̙̌͋̓̈́͊̑̿̇͋̇̐͆</button>
                     </div> <!-- style="text-align: center;" -->
                 </div> <!-- class="popup_good_3" -->
 

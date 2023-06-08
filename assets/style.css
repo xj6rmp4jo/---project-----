@@ -27,23 +27,35 @@ memberInformation {
     padding-top: 15px;
     font-size: 25px;
     display: inline-block;
-    margin-left: 12px;
+    margin-left: 15px;
 } /* #clock */
 
 #welcome {
     padding-top: 15px;
     font-size: 25px;
     display: inline-block;
-    margin-left: 31%;
+    margin-left: 5%;
 } /* #welcome */
 
-#goTo_shoppingCart {
+.goTo_shoppingCart {
     cursor: pointer;
     position: absolute;
-    padding-top: 1px;
+    padding-top: 15px;
+    font-size: 25px;
     display: inline-block;
-    right: 200px;
+    right: 100px;
 } /* #goTo_shoppingCart */
+
+.goTo_shoppingCart a:hover {
+    background-color: #76736F;
+    color:white;
+ }/* #goTo_shoppingCart a:hover */
+
+#shoppingcart_img {
+    cursor: pointer;
+    position: absolute;
+    display: inline-block;
+}
 
 #logIn {
     cursor: pointer;
@@ -51,13 +63,55 @@ memberInformation {
     padding-top: 15px;
     font-size: 25px;
     display: inline-block;
-    right: 20px;
+    right: 275px;
 } /* #logIn */
 
 #logIn p:hover {
     background-color: #76736F;
     color:white;
 } /* logIn a:hover */
+
+#register {
+    cursor: pointer;
+    position: absolute;
+    padding-top: 15px;
+    font-size: 25px;
+    display: inline-block;
+    right: 500px;
+} /* #register */
+
+#register p:hover {
+    background-color: #76736F;
+    color:white;
+} /* #register p:hover */
+
+#member {
+    cursor: pointer;
+    position: absolute;
+    padding-top: 15px;
+    font-size: 25px;
+    display: inline-block;
+    right: 650px;
+} /* #member */
+
+#member a:hover {
+    background-color: #76736F;
+    color:white;
+} /* #member p:hover */
+
+#team {
+    cursor: pointer;
+    position: absolute;
+    padding-top: 15px;
+    font-size: 25px;
+    display: inline-block;
+    right: 875px;
+} /* #team */
+
+#team a:hover {
+    background-color: #76736F;
+    color:white;
+} /* #team p:hover */
 
 logo {
     grid-area: logo;
@@ -171,7 +225,7 @@ memberOnly {
     margin-top: 16.5px;
 } /* #image_memberOnly */
 
-.popup_memberOnly, .popup_marquee, .popup_good_0, .popup_good_1, .popup_good_2, .popup_good_3, .popup_good_4, .popup_memberInfo{
+.popup_memberOnly, .popup_marquee, .popup_good_0, .popup_good_1, .popup_good_2, .popup_good_3, .popup_good_4, .popup_memberInfo, .popup_logIn{
     display: none;
     position: absolute;
     top: 50%;
@@ -183,12 +237,17 @@ memberOnly {
     border: 1px solid #ccc;
 } /* .popup */
 
-#close_memberOnly, #close_marquee, #close_good_0, #close_good_1, #close_good_2, #close_good_3, #close_good_4, #close_memberInfo{
+#close_memberOnly, #close_marquee, #close_good_0, #close_good_1, #close_good_2, #close_good_3, #close_good_4, #close_memberInfo, #close_logIn{
     position: absolute;
     top: 5px;
     right: 5px;
     cursor: pointer;
 } /* #close */
+
+#confirm, #confirm1 {
+    margin-top: 2%;
+    margin-left: 45%;
+} /* #confirm */
 
 .product {
     cursor: pointer;
@@ -198,24 +257,13 @@ memberOnly {
 
 .socialMedia {
     display: flex;
-    justify-content: space-between; 
-    align-items: flex-start; 
+    justify-content: center;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 25px;
+    margin-left: 70px;
+    margin-right: 70px;
 } /* .socialMedia */
-
-.social-link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-} /* .social-link */
-
-.social-link img {
-    width: 50px;
-    height: 50px;
-    margin-top: 20px;
-    margin-left: 60px;
-    margin-right: 80px;
-} /* .social-link img */
 
 .QR {
     display: flex;
